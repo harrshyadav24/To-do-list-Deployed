@@ -1,12 +1,16 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const _ = require("lodash");
+require('dotenv').config()
+
+console.log(process.env);
 
 
 
 // DataBase Code
 const mongoose = require('mongoose');
-mongoose.connect('mongodb+srv://harrshyadav24:n4w2B4Havyl4cdvP@cluster0.9lghyzd.mongodb.net/todoDB');
+const url = process.env.MONGODB_URL;
+mongoose.connect(url);
 
 const itemSchema = new mongoose.Schema({
     name: String
